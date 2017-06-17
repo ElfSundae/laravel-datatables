@@ -23,6 +23,38 @@ Then register the service provider by adding the following to the `providers` ar
 ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
 ```
 
+## Configuration
+
+- To use our eloquent engine, you need config it in `config/datatables.php`:
+
+    ```php
+    /*
+     * Datatables list of available engines.
+     * This is where you can register your custom datatables engine.
+     */
+    'engines'        => [
+        'eloquent'   => ElfSundae\Laravel\Datatables\Engines\EloquentEngine::class,
+        // ...
+    ],
+    ```
+
+    Then make sure you use the factory way `Datatables::of(...)` to create eloquent engine.
+
+    ```php
+    class UserDataTable extends DataTable
+    {
+        /**
+         * Build DataTable class.
+         *
+         * @return \Yajra\Datatables\Engines\BaseEngine
+         */
+        public function dataTable()
+        {
+            return $this->datatables
+                ->of($this->query());
+        }
+    ```
+
 ## Testing
 
 ```sh
