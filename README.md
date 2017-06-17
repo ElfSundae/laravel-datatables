@@ -30,7 +30,6 @@ ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
     ```php
     /*
      * Datatables list of available engines.
-     * This is where you can register your custom datatables engine.
      */
     'engines'        => [
         'eloquent'   => ElfSundae\Laravel\Datatables\Engines\EloquentEngine::class,
@@ -53,6 +52,15 @@ ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
             return $this->datatables
                 ->of($this->query());
         }
+    ```
+
+- To use our DataTable service for `artisan datatables:make` command,  you can set the "stub" config in `config/datatables-buttons.php` :
+
+    ```php
+    /**
+     * Set Custom stub folder
+     */
+    'stub' => '/vendor/elfsundae/laravel-datatables/src/stubs',
     ```
 
 ## Testing
