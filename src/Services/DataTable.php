@@ -40,8 +40,8 @@ abstract class DataTable extends BaseDataTable
      */
     protected function linkRender($url = '{data}', $content = '{data}', $class = '')
     {
-        $url = $this->parseForEmbedJsString($url);
-        $content = $this->parseForEmbedJsString($content);
+        $url = $this->getRenderedJsString($url);
+        $content = $this->getRenderedJsString($content);
         $class = $class ? ' class="'.$class.'"' : '';
 
         return function () use ($url, $content, $class) {
@@ -57,13 +57,12 @@ JS;
     }
 
     /**
-     * Parse the given string, return the emmbed Javascript string,
-     * for JS string concat.
+     * Convert PHP string value to a rendered JavaScript string.
      *
      * @param  string  $string
      * @return string
      */
-    protected function parseForEmbedJsString($string)
+    protected function getRenderedJsString($string)
     {
         return "'".str_replace(['{', '}'], ["'+", "+'"], $string)."'";
     }
