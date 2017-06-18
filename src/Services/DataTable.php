@@ -31,7 +31,7 @@ abstract class DataTable extends BaseDataTable
     }
 
     /**
-     * Return a render Closure for <a> link.
+     * Get render Closure for an <a> link.
      *
      * @param  string  $url  "/uri/to/{data}/{full.otherData}"
      * @param  string  $content  "{data} content"

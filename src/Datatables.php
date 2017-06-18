@@ -2,7 +2,6 @@
 
 namespace ElfSundae\Laravel\Datatables;
 
-use Exception;
 use Illuminate\Support\Collection;
 use Yajra\Datatables\Datatables as BaseDatatables;
 
