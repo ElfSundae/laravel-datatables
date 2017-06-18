@@ -1,4 +1,4 @@
-# laravel-datatables
+# Laravel Datatables
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/elfsundae/laravel-datatables.svg?style=flat-square)](https://packagist.org/packages/elfsundae/laravel-datatables)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -9,9 +9,11 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/ElfSundae/laravel-datatables/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/ElfSundae/laravel-datatables/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/elfsundae/laravel-datatables.svg?style=flat-square)](https://packagist.org/packages/elfsundae/laravel-datatables)
 
+This package is an extended package based on [yajra/laravel-datatables](https://github.com/yajra/laravel-datatables).
+
 ## Installation
 
-You can install this package via the [Composer](https://getcomposer.org) manager:
+You can install this package using the [Composer](https://getcomposer.org) manager:
 
 ```sh
 $ composer require elfsundae/laravel-datatables
@@ -23,9 +25,11 @@ Then register the service provider by adding the following to the `providers` ar
 ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
 ```
 
+> `DatatablesServiceProvider` will register the original `yajra/laravel-datatables` services and register our custom bindings.
+
 ## Configuration
 
-- To use our eloquent engine, you need config it in `config/datatables.php`:
+- To use our eloquent engine, you need to configure it in `config/datatables.php`:
 
     ```php
     /*
@@ -37,7 +41,7 @@ ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
     ],
     ```
 
-- To use our DataTable service for `artisan datatables:make` command,  you can set the "stub" config in `config/datatables-buttons.php` :
+- To use our DataTable service for the `artisan datatables:make` command,  you need to set the "stub" config in `config/datatables-buttons.php`:
 
     ```php
     /**
@@ -45,6 +49,10 @@ ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
      */
     'stub' => '/vendor/elfsundae/laravel-datatables/src/stubs',
     ```
+
+## Usage
+
+Make sure you have read the original [Laravel Datatables Documentation](https://yajrabox.com/docs/laravel-datatables).
 
 ## Testing
 
