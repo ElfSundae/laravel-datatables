@@ -1,7 +1,7 @@
 {
     "name": "elfsundae/laravel-datatables",
     "type": "library",
-    "description": "Laravel Datatables",
+    "description": "Laravel Datatables Helper",
     "keywords": ["laravel", "datatables"],
     "homepage": "https://github.com/ElfSundae/laravel-datatables",
     "license": "MIT",
