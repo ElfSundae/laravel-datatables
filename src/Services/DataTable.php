@@ -34,19 +34,21 @@ abstract class DataTable extends BaseDataTable
      * Return a render Closure for <a> link.
      *
      * @param  string  $url  "/uri/to/{data}/{full.otherData}"
-     * @param  string  $content
+     * @param  string  $content  "{data} content"
+     * @param  string  $class
      * @return Closure
      */
-    protected function linkRender($url = '{data}', $content = '{data}')
+    protected function linkRender($url = '{data}', $content = '{data}', $class = '')
     {
         $url = $this->parseForEmbedJsString($url);
         $content = $this->parseForEmbedJsString($content);
+        $class = $class ? ' class="'.$class.'"' : '';
 
-        return function () use ($url, $content) {
+        return function () use ($url, $content, $class) {
             return <<<JS
 function (data, type, full, meta) {
     if (type === 'display' && data) {
-        return '<a href=\"'+ {$url} +'\">'+ {$content} +'</a>';
+        return '<a href=\"'+ {$url} +'\"{$class}>'+ {$content} +'</a>';
     }
     return data;
 }
