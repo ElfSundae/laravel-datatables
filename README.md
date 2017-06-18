@@ -52,7 +52,7 @@ ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
 
 ## Usage
 
-Make sure you have read the original [Laravel Datatables Documentation](https://yajrabox.com/docs/laravel-datatables).
+Before getting started, make sure you have read the original [Laravel Datatables Documentation](https://yajrabox.com/docs/laravel-datatables).
 
 ## Testing
 
