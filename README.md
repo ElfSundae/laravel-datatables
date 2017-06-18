@@ -37,23 +37,6 @@ ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
     ],
     ```
 
-    Then make sure you use the factory way `Datatables::of(...)` to create eloquent engine.
-
-    ```php
-    class UserDataTable extends DataTable
-    {
-        /**
-         * Build DataTable class.
-         *
-         * @return \Yajra\Datatables\Engines\BaseEngine
-         */
-        public function dataTable()
-        {
-            return $this->datatables
-                ->of($this->query());
-        }
-    ```
-
 - To use our DataTable service for `artisan datatables:make` command,  you can set the "stub" config in `config/datatables-buttons.php` :
 
     ```php
