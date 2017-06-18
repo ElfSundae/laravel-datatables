@@ -31,6 +31,42 @@ abstract class DataTable extends BaseDataTable
     }
 
     /**
+     * Return a render Closure for <a> link.
+     *
+     * @param  string  $url  "/uri/to/{data}/{full.otherData}"
+     * @param  string  $content
+     * @return Closure
+     */
+    protected function linkRender($url = '{data}', $content = '{data}')
+    {
+        $url = $this->parseForEmbedJsString($url);
+        $content = $this->parseForEmbedJsString($content);
+
+        return function () use ($url, $content) {
+            return <<<JS
+function (data, type, full, meta) {
+    if (type === 'display' && data) {
+        return '<a href=\"'+ {$url} +'\">'+ {$content} +'</a>';
+    }
+    return data;
+}
+JS;
+        };
+    }
+
+    /**
+     * Parse the given string, return the emmbed Javascript string,
+     * for JS string concat.
+     *
+     * @param  string  $string
+     * @return string
+     */
+    protected function parseForEmbedJsString($string)
+    {
+        return "'".str_replace(['{', '}'], ["'+", "+'"], $string)."'";
+    }
+
+    /**
      * Get filename for export.
      *
      * @return string
