@@ -19,7 +19,7 @@ abstract class DataTable extends BaseDataTable
         return array_merge([
             'data' => $name,
             'name' => $name,
-            'title' => $this->html()->getQualifiedTitle($name),
+            'title' => $this->builder()->getQualifiedTitle($name),
             'defaultContent' => '',
             'render' => null,
             'orderable' => false,
