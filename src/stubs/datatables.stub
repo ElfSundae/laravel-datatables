@@ -16,7 +16,7 @@ class DummyClass extends DataTable
     {
         return $this->datatables
             ->eloquent($this->query())
-            ->rawColumns([]);
+            ->addColumn('action', 'DummyAction');
     }
 
     /**
