@@ -60,6 +60,6 @@ class Datatables extends BaseDatatables
         }
 
         return $this->createEngineForType('collection', $collection) ?:
-            parent::collection($builder);
+            parent::collection($collection);
     }
 }
