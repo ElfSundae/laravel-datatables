@@ -3,7 +3,6 @@
 namespace ElfSundae\Laravel\DataTables\Html;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Yajra\DataTables\Html\Builder as BaseBuilder;
 
 class Builder extends BaseBuilder
