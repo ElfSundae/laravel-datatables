@@ -9,17 +9,6 @@ use Yajra\DataTables\Html\Builder as BaseBuilder;
 class Builder extends BaseBuilder
 {
     /**
-     * Table attributes.
-     *
-     * @var array
-     */
-    protected $tableAttributes = [
-        'id' => 'dataTable',
-        'class' => 'table table-bordered table-hover dt-responsive',
-        'width' => '100%',
-    ];
-
-    /**
      * Set table "id" attribute.
      *
      * @param  string  $id
@@ -38,36 +27,32 @@ class Builder extends BaseBuilder
      */
     public function addTableClass(...$classes)
     {
-        $value = Arr::get($this->tableAttributes, 'class', '');
+        $classes = array_merge($this->getTableClasses(), $classes);
 
-        foreach ($classes as $class) {
-            if (! Str::contains($value, $class)) {
-                $value .= ' '.$class;
-            }
-        }
-
-        return $this->setTableAttribute('class', trim($value));
+        return $this->setTableAttribute('class', implode(' ', $classes));
     }
 
     /**
-     * Remove classes to table "class" attribute.
+     * Remove classes from table "class" attribute.
      *
      * @param  string  ...$classes
      * @return $this
      */
     public function removeTableClass(...$classes)
     {
-        if ($value = Arr::get($this->tableAttributes, 'class')) {
-            foreach ($classes as $class) {
-                if (Str::contains($value, $class)) {
-                    $value = str_replace($class, '', $value);
-                }
-            }
+        $classes = array_diff($this->getTableClasses(), $classes);
 
-            $this->setTableAttribute('class', trim($value));
-        }
+        return $this->setTableAttribute('class', implode(' ', $classes));
+    }
 
-        return $this;
+    /**
+     * Get table "class" attribute as array.
+     *
+     * @return array
+     */
+    public function getTableClasses()
+    {
+        return array_filter(explode(' ', Arr::get($this->getTableAttributes(), 'class', '')));
     }
 
     /**
@@ -77,9 +62,7 @@ class Builder extends BaseBuilder
      */
     public function stripedTable()
     {
-        $this->removeTableClass('table-hover');
-
-        return $this->addTableClass('table-striped');
+        return $this->removeTableClass('table-hover')->addTableClass('table-striped');
     }
 
     /**
@@ -89,8 +72,6 @@ class Builder extends BaseBuilder
      */
     public function hoveredTable()
     {
-        $this->removeTableClass('table-striped');
-
-        return $this->addTableClass('table-hover');
+        return $this->removeTableClass('table-striped')->addTableClass('table-hover');
     }
 }
