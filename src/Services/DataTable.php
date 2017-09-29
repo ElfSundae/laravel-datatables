@@ -76,16 +76,4 @@ JS;
     {
         return preg_replace('#datatable$#i', '', class_basename($this)).'-'.date('YmdHis');
     }
-
-    /**
-     * Get default builder parameters.
-     *
-     * @return array
-     */
-    protected function getBuilderParameters()
-    {
-        return [
-            'order' => [[0, 'desc']],
-        ];
-    }
 }
