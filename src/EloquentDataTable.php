@@ -1,6 +1,6 @@
 <?php
 
-namespace ElfSundae\Laravel\DataTables\Engines;
+namespace ElfSundae\Laravel\DataTables;
 
 use Yajra\DataTables\EloquentDataTable as BaseEloquentDataTable;
 
