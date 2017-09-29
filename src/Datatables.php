@@ -5,7 +5,7 @@ namespace ElfSundae\Laravel\DataTables;
 use Illuminate\Support\Collection;
 use Yajra\DataTables\DataTables as BaseDataTables;
 
-class DataTables extends BaseDataTables
+class Datatables extends BaseDataTables
 {
     /**
      * Create an engine instance with configured class.
