@@ -4,7 +4,7 @@ namespace ElfSundae\Laravel\DataTables\Engines;
 
 use Yajra\DataTables\EloquentDataTable as BaseEloquentDataTable;
 
-class EloquentDataTable extends BaseEngine
+class EloquentDataTable extends BaseEloquentDataTable
 {
     /**
      * Add column in collection.
