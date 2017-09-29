@@ -39,11 +39,6 @@ class DataTablesServiceProvider extends ServiceProvider
      */
     protected function replaceDataTablesBindings()
     {
-        $this->app->alias('datatables', DataTables::class);
-        $this->app->singleton('datatables', function () {
-            return new DataTables;
-        });
-
         $this->app->bind('datatables.html', Html\Builder::class);
     }
 }
