@@ -13,7 +13,7 @@ abstract class DataTable extends BaseDataTable
      *
      * @param  string  $name
      * @param  array  $attributes
-     * @return $this
+     * @return array
      */
     protected function staticColumn($name, array $attributes = [])
     {
