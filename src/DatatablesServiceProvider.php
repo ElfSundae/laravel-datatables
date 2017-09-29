@@ -5,7 +5,7 @@ namespace ElfSundae\Laravel\DataTables;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
-class DataTablesServiceProvider extends ServiceProvider
+class DatatablesServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
