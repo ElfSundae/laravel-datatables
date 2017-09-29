@@ -2,6 +2,7 @@
 
 namespace ElfSundae\Laravel\DataTables\Services;
 
+use Illuminate\Support\Str;
 use Yajra\DataTables\Services\DataTable as BaseDataTable;
 
 abstract class DataTable extends BaseDataTable
@@ -19,7 +20,7 @@ abstract class DataTable extends BaseDataTable
         return array_merge([
             'data' => $name,
             'name' => $name,
-            'title' => $this->builder()->getQualifiedTitle($name),
+            'title' => $this->getQualifiedTitle($name),
             'defaultContent' => '',
             'render' => null,
             'orderable' => false,
@@ -28,6 +29,17 @@ abstract class DataTable extends BaseDataTable
             'printable' => true,
             'footer' => '',
         ], $attributes);
+    }
+
+    /**
+     * Convert string into a readable title.
+     *
+     * @param  string  $title
+     * @return string
+     */
+    protected function getQualifiedTitle($title)
+    {
+        return Str::title(str_replace(['.', '_'], ' ', Str::snake($title)));
     }
 
     /**
