@@ -1,4 +1,4 @@
-# Laravel Datatables
+# Laravel DataTables
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/elfsundae/laravel-datatables.svg?style=flat-square)](https://packagist.org/packages/elfsundae/laravel-datatables)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -33,10 +33,10 @@ ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
 
     ```php
     /*
-     * Datatables list of available engines.
+     * DataTables list of available engines.
      */
     'engines'        => [
-        'eloquent'   => ElfSundae\Laravel\Datatables\Engines\EloquentEngine::class,
+        'eloquent'   => ElfSundae\Laravel\DataTables\Engines\EloquentEngine::class,
         // ...
     ],
     ```
@@ -52,7 +52,7 @@ ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
 
 ## Usage
 
-Before getting started, make sure you have read the original [Laravel Datatables Documentation](https://yajrabox.com/docs/laravel-datatables).
+Before getting started, make sure you have read the original [Laravel DataTables Documentation](https://yajrabox.com/docs/laravel-datatables).
 
 ## Testing
 

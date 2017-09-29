@@ -2,14 +2,14 @@
 
 namespace DummyNamespace;
 
-use Yajra\Datatables\Contracts\DataTableScopeContract;
+use Yajra\DataTables\Contracts\DataTableScopeContract;
 
 class DummyClass implements DataTableScopeContract
 {
     /**
      * Apply a query scope.
      *
-     * @param \Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder $query
+     * @param \Illuminate\DataTables\Query\Builder|\Illuminate\Database\Eloquent\Builder $query
      * @return mixed
      */
     public function apply($query)

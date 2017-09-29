@@ -1,6 +1,6 @@
 <?php
 
-namespace ElfSundae\Laravel\Datatables\Test;
+namespace ElfSundae\Laravel\DataTables\Test;
 
 use Mockery as m;
 use PHPUnit\Framework\TestCase;

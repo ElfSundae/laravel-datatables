@@ -1,18 +1,18 @@
 <?php
 
-namespace ElfSundae\Laravel\Datatables;
+namespace ElfSundae\Laravel\DataTables;
 
 use Illuminate\Support\Collection;
-use Yajra\Datatables\Datatables as BaseDatatables;
+use Yajra\DataTables\DataTables as BaseDataTables;
 
-class Datatables extends BaseDatatables
+class DataTables extends BaseDataTables
 {
     /**
      * Create an engine instance with configured class.
      *
      * @param  string  $type
      * @param  mixed  $source
-     * @return \Yajra\Datatables\Engines\BaseEngine|null
+     * @return \Yajra\DataTables\Engines\BaseEngine|null
      */
     protected function createEngineForType($type, $source)
     {

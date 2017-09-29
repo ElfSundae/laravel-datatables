@@ -1,8 +1,8 @@
 <?php
 
-namespace ElfSundae\Laravel\Datatables\Services;
+namespace ElfSundae\Laravel\DataTables\Services;
 
-use Yajra\Datatables\Services\DataTable as BaseDataTable;
+use Yajra\DataTables\Services\DataTable as BaseDataTable;
 
 abstract class DataTable extends BaseDataTable
 {

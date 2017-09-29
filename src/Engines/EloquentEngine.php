@@ -1,8 +1,8 @@
 <?php
 
-namespace ElfSundae\Laravel\Datatables\Engines;
+namespace ElfSundae\Laravel\DataTables\Engines;
 
-use Yajra\Datatables\Engines\EloquentEngine as BaseEngine;
+use Yajra\DataTables\Engines\EloquentEngine as BaseEngine;
 
 class EloquentEngine extends BaseEngine
 {

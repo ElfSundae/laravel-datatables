@@ -1,11 +1,11 @@
 <?php
 
-namespace ElfSundae\Laravel\Datatables;
+namespace ElfSundae\Laravel\DataTables;
 
-use Yajra\Datatables\Request;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
-class DatatablesServiceProvider extends ServiceProvider
+class DataTablesServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
@@ -14,17 +14,36 @@ class DatatablesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(\Yajra\Datatables\DatatablesServiceProvider::class);
-        $this->app->register(\Yajra\Datatables\HtmlServiceProvider::class);
-        $this->app->register(\Yajra\Datatables\ButtonsServiceProvider::class);
+        $this->registerOriginalDataTables();
 
-        // Replace Datatables
-        $this->app->singleton('datatables', function ($app) {
-            return new Datatables(new Request($app->make('request')));
+        $this->replaceDataTablesBindings();
+    }
+
+    /**
+     * Register the original DataTables service providers.
+     *
+     * @return void
+     */
+    protected function registerOriginalDataTables()
+    {
+        $this->app->register(\Yajra\DataTables\DataTablesServiceProvider::class);
+        AliasLoader::getInstance()->alias('DataTables', \Yajra\DataTables\Facades\DataTables::class);
+
+        $this->app->register(\Yajra\DataTables\ButtonsServiceProvider::class);
+    }
+
+    /**
+     * Replace the original DataTables bindings.
+     *
+     * @return void
+     */
+    protected function replaceDataTablesBindings()
+    {
+        $this->app->alias('datatables', DataTables::class);
+        $this->app->singleton('datatables', function () {
+            return new DataTables;
         });
-        $this->app->alias('datatables', Datatables::class);
 
-        // Replace html builder binding.
         $this->app->bind('datatables.html', Html\Builder::class);
     }
 }
