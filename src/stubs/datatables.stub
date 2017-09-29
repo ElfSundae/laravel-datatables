@@ -10,25 +10,24 @@ class DummyClass extends DataTable
     /**
      * Build DataTable class.
      *
-     * @return \Yajra\DataTables\Engines\BaseEngine
+     * @param mixed $query Results from query() method.
+     * @return \Yajra\DataTables\DataTableAbstract
      */
-    public function dataTable()
+    public function dataTable($query)
     {
-        return $this->datatables
-            ->eloquent($this->query())
+        return datatables($query)
             ->addColumn('action', 'DummyAction');
     }
 
     /**
-     * Get the query object to be processed by dataTables.
+     * Get query source of dataTable.
      *
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder|\Illuminate\Support\Collection
+     * @param \DummyModel $model
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query()
+    public function query(ModelName $model)
     {
-        $query = ModelName::query();
-
-        return $this->applyScopes($query);
+        return $model->newQuery()->select($this->getColumns());
     }
 
     /**
@@ -40,6 +39,7 @@ class DummyClass extends DataTable
     {
         return $this->builder()
             ->columns($this->getColumns())
+            ->minifiedAjax()
             ->parameters($this->getBuilderParameters());
     }
 
@@ -52,18 +52,6 @@ class DummyClass extends DataTable
     {
         return [
             'DummyColumns'
-        ];
-    }
-
-    /**
-     * Get the html builder parameters.
-     *
-     * @return array
-     */
-    protected function getBuilderParameters()
-    {
-        return [
-            'order' => [[0, 'desc']],
         ];
     }
 }
