@@ -13,42 +13,30 @@ This package is an extended package based on [yajra/laravel-datatables](https://
 
 ## Installation
 
-You can install this package using the [Composer](https://getcomposer.org) manager:
-
 ```sh
 $ composer require elfsundae/laravel-datatables
 ```
 
-Then register the service provider by adding the following to the `providers` array in `config/app.php`:
+Then register the service provider in `config/app.php` or `AppServiceProvider`:
 
 ```php
-ElfSundae\Laravel\Datatables\DatatablesServiceProvider::class,
+'providers' => [
+    // ...
+    ElfSundae\Laravel\DataTables\DataTablesServiceProvider::class,
+]
 ```
 
-> `DatatablesServiceProvider` will register the original `yajra/laravel-datatables` services and register our custom bindings.
-
-## Configuration
-
-- To use our eloquent engine, you need to configure it in `config/datatables.php`:
-
-    ```php
-    /*
-     * DataTables list of available engines.
-     */
-    'engines'        => [
-        'eloquent'   => ElfSundae\Laravel\DataTables\Engines\EloquentEngine::class,
-        // ...
-    ],
-    ```
-
-- To use our DataTable service for the `artisan datatables:make` command,  you need to set the "stub" config in `config/datatables-buttons.php`:
-
-    ```php
-    /**
-     * Set Custom stub folder
-     */
-    'stub' => '/vendor/elfsundae/laravel-datatables/src/stubs',
-    ```
+```php
+class AppServiceProvider extends ServiceProvider
+{
+    public function register()
+    {
+        if ($this->isAdminSite()) {
+            $this->app->register(\ElfSundae\Laravel\DataTables\DataTablesServiceProvider::class);
+        }
+    }
+}
+```
 
 ## Usage
 
