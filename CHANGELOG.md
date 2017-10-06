@@ -1,5 +1,9 @@
 # Release Notes
 
+## 2.1.0 (2017-10-07)
+
+- Automatic configure `datatables.engines.eloquent` and `datatables-buttons.stub`
+
 ## 2.0.0 (2017-09-29)
 
 - Update `yajra/laravel-datatables-oracle` to v8.x
