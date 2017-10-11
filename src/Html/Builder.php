@@ -8,9 +8,9 @@ use Yajra\DataTables\Html\Builder as BaseBuilder;
 class Builder extends BaseBuilder
 {
     /**
-     * Set table "id" attribute.
+     * Sets HTML table "id" attribute.
      *
-     * @param  string  $id
+     * @param string $id
      * @return $this
      */
     public function setTableId($id)
@@ -19,39 +19,40 @@ class Builder extends BaseBuilder
     }
 
     /**
-     * Add classes to table "class" attribute.
+     * Add class names to the "class" attribute of HTML table.
      *
-     * @param  string  ...$classes
+     * @param string|array $class
      * @return $this
      */
-    public function addTableClass(...$classes)
+    public function addTableClass($class)
     {
-        $classes = array_merge($this->getTableClasses(), $classes);
+        $class = is_array($class) ? implode(' ', $class) : $class;
+        $currentClass = Arr::get(array_change_key_case($this->tableAttributes), 'class');
 
-        return $this->setTableAttribute('class', implode(' ', $classes));
+        $classes = preg_split('#\s+#', $currentClass.' '.$class, null, PREG_SPLIT_NO_EMPTY);
+        $class = implode(' ', array_unique($classes));
+
+        return $this->setTableAttribute('class', $class);
     }
 
     /**
-     * Remove classes from table "class" attribute.
+     * Remove class names from the "class" attribute of HTML table.
      *
-     * @param  string  ...$classes
+     * @param string|array $class
      * @return $this
      */
-    public function removeTableClass(...$classes)
+    public function removeTableClass($class)
     {
-        $classes = array_diff($this->getTableClasses(), $classes);
+        $class = is_array($class) ? implode(' ', $class) : $class;
+        $currentClass = Arr::get(array_change_key_case($this->tableAttributes), 'class');
 
-        return $this->setTableAttribute('class', implode(' ', $classes));
-    }
+        $classes = array_diff(
+            preg_split('#\s+#', $currentClass, null, PREG_SPLIT_NO_EMPTY),
+            preg_split('#\s+#', $class, null, PREG_SPLIT_NO_EMPTY)
+        );
+        $class = implode(' ', array_unique($classes));
 
-    /**
-     * Get table "class" attribute as array.
-     *
-     * @return array
-     */
-    public function getTableClasses()
-    {
-        return array_filter(explode(' ', Arr::get($this->getTableAttributes(), 'class', '')));
+        return $this->setTableAttribute('class', $class);
     }
 
     /**
