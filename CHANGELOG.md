@@ -4,6 +4,7 @@
 
 - Update `yajra/laravel-datatables-html` to `~3.2`
 - Remove methods that have already merged into the original yajra packages
+- Remove methods `stripedTable`, `hoveredTable` from Html Builder
 
 ## 2.1.0 (2017-10-07)
 
