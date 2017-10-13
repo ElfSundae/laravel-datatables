@@ -26,6 +26,8 @@ Then register the service provider in `config/app.php` or `AppServiceProvider`:
 ]
 ```
 
+Or:
+
 ```php
 class AppServiceProvider extends ServiceProvider
 {
