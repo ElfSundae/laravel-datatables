@@ -86,6 +86,6 @@ JS;
      */
     protected function filename()
     {
-        return preg_replace('#datatable$#i', '', class_basename($this)).'-'.date('YmdHis');
+        return class_basename($this).'_'.date('Ymd_His');
     }
 }
