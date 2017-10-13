@@ -1,5 +1,10 @@
 # Release Notes
 
+## Unreleased
+
+- Update `yajra/laravel-datatables-html` to `~3.2`
+- Remove methods that already merged into the original yajra packages
+
 ## 2.1.0 (2017-10-07)
 
 - Automatic configure `datatables.engines.eloquent` and `datatables-buttons.stub`
