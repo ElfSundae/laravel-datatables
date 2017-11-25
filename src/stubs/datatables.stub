@@ -15,8 +15,7 @@ class DummyClass extends DataTable
      */
     public function dataTable($query)
     {
-        return datatables($query)
-            ->addColumn('action', 'DummyAction');
+        return datatables($query);
     }
 
     /**
