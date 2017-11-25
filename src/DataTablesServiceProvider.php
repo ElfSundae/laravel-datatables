@@ -51,10 +51,6 @@ class DataTablesServiceProvider extends ServiceProvider
      */
     protected function configureDataTables()
     {
-        // $this->app['config']->set([
-        //     'datatables.engines.eloquent' => EloquentDataTable::class,
-        // ]);
-
         if (! $this->app['config']->has('datatables-buttons.stub')) {
             $this->app['config']->set([
                 'datatables-buttons.stub' => '/vendor/elfsundae/laravel-datatables/src/stubs',

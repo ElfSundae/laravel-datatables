@@ -1,5 +1,9 @@
 # Release Notes
 
+## Unreleased
+
+- Removed custom `ElfSundae\Laravel\DataTables\EloquentDataTable`
+
 ## 2.2.1 (2017-11-26)
 
 - Change selected columns to `['*']` for `make` stub [20e3843](https://github.com/ElfSundae/laravel-datatables/commit/20e3843cc258b182155daf5cc1267ab34ba95267)
