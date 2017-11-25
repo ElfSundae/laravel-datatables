@@ -40,16 +40,8 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-## Usage
+## Customized Notes
 
-Before getting started, make sure you have read the original [Laravel DataTables Documentation](https://yajrabox.com/docs/laravel-datatables).
-
-## Testing
-
-```sh
-$ composer test
-```
-
-## License
-
-This package is open-sourced software licensed under the [MIT License](LICENSE.md).
+- Disabled [package discovery](https://laravel.com/docs/5.5/packages#package-discovery) for the original datatables packages.
+- Added some convenient methods for DataTable service, you need to use `ElfSundae\Laravel\DataTables\Services\DataTable` instead of `Yajra\DataTables\Services\DataTable`.
+- Changed `datatables.stub` (used in `make` command) more concise.
