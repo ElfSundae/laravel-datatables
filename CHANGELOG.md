@@ -1,5 +1,10 @@
 # Release Notes
 
+## 2.2.1 (2017-11-26)
+
+- Change selected columns to `['*']` for `make` stub [20e3843](https://github.com/ElfSundae/laravel-datatables/commit/20e3843cc258b182155daf5cc1267ab34ba95267)
+- Remove "action" column for `make` stub [f793d02](https://github.com/ElfSundae/laravel-datatables/commit/f793d02e643f915528fcae68dc16b5dbc32c4382)
+
 ## 2.2.0 (2017-10-13)
 
 - Update `yajra/laravel-datatables-html` to `~3.2`
