@@ -7,6 +7,7 @@ use ElfSundae\Laravel\DataTables\DataTables;
 use Yajra\DataTables\ButtonsServiceProvider;
 use ElfSundae\Laravel\DataTables\DataTablesServiceProvider;
 use Yajra\DataTables\Facades\DataTables as DataTablesFacade;
+use Yajra\DataTables\DataTablesServiceProvider as YajraDataTablesServiceProvider;
 
 class DataTablesServiceProviderTest extends TestCase
 {
@@ -30,6 +31,18 @@ class DataTablesServiceProviderTest extends TestCase
         $this->assertSame(
             '/vendor/elfsundae/laravel-datatables/src/stubs',
             $this->app['config']->get('datatables-buttons.stub')
+        );
+    }
+
+    public function testDoNotOverwriteUsersBuildersConfig()
+    {
+        $this->app->register(YajraDataTablesServiceProvider::class);
+        $this->app['config']->set('datatables.builders', ['foo' => 'bar']);
+
+        $this->app->register(DataTablesServiceProvider::class);
+        $this->assertEquals(
+            ['eloquent', 'query', 'collection', 'bar'],
+            array_keys(array_flip($this->app['config']->get('datatables.builders')))
         );
     }
 
