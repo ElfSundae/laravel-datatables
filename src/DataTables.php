@@ -26,7 +26,7 @@ class DataTables
             return $this->createDataTable($engine, $source);
         }
 
-        throw new Exception('No available engine for ' . get_class($source));
+        throw new Exception('No available engine for '.get_class($source));
     }
 
     /**
@@ -43,7 +43,7 @@ class DataTables
             if ($source instanceof $type) {
                 if (! isset($tmpType) || is_subclass_of($type, $tmpType)) {
                     $tmpType = $type;
-                    $result  = $engine;
+                    $result = $engine;
                 }
             }
         }
