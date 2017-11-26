@@ -41,6 +41,11 @@ class DataTablesServiceProvider extends ServiceProvider
      */
     protected function replaceDataTablesBindings()
     {
+        $this->app->alias('datatables', DataTables::class);
+        $this->app->singleton('datatables', function () {
+            return new DataTables;
+        });
+
         // $this->app->bind('datatables.html', Html\Builder::class);
     }
 
@@ -51,10 +56,23 @@ class DataTablesServiceProvider extends ServiceProvider
      */
     protected function configureDataTables()
     {
-        if (! $this->app['config']->has('datatables-buttons.stub')) {
-            $this->app['config']->set([
-                'datatables-buttons.stub' => '/vendor/elfsundae/laravel-datatables/src/stubs',
+        // Restore the default "builders" configuration.
+        // See https://github.com/yajra/laravel-datatables/pull/1462/commits/afdbe6bce9ade9b19d66034ace3d8a2c24da8a56
+        if (! $this->app['config']->get('datatables.builders')) {
+            $this->app['config']->set('datatables.builders', [
+                \Illuminate\Database\Eloquent\Builder::class => 'eloquent',
+                \Illuminate\Database\Eloquent\Relations\Relation::class => 'eloquent',
+                \Illuminate\Database\Query\Builder::class => 'query',
+                \Illuminate\Support\Collection::class => 'collection',
             ]);
+        }
+
+        // Configure our custom DataTable service stub for "make" command
+        if (! $this->app['config']->get('datatables-buttons.stub')) {
+            $this->app['config']->set(
+                'datatables-buttons.stub',
+                '/vendor/elfsundae/laravel-datatables/src/stubs'
+            );
         }
     }
 }
