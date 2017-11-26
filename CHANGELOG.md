@@ -1,8 +1,10 @@
 # Release Notes
 
-## Unreleased
+## 2.3.0 (2017-11-27)
 
-- Removed custom `ElfSundae\Laravel\DataTables\EloquentDataTable`
+- Removed custom `EloquentDataTable`
+- Removed custom `Html\Builder`
+- Refactored `DataTables` factory
 
 ## 2.2.1 (2017-11-26)
 
