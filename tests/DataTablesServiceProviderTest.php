@@ -18,9 +18,15 @@ class DataTablesServiceProviderTest extends TestCase
         $this->assertSame($this->app['datatables'], DataTablesFacade::getFacadeRoot());
     }
 
-    public function testConfiguredButtonsStub()
+    public function testMergedConfiguration()
     {
         $this->app->register(DataTablesServiceProvider::class);
+
+        $this->assertEquals(
+            ['eloquent', 'query', 'collection'],
+            array_keys(array_flip($this->app['config']->get('datatables.builders')))
+        );
+
         $this->assertSame(
             '/vendor/elfsundae/laravel-datatables/src/stubs',
             $this->app['config']->get('datatables-buttons.stub')
