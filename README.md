@@ -48,3 +48,4 @@ class AppServiceProvider extends ServiceProvider
 - Removed `action` column in `datatables.stub` for the `make` command
 - Removed `filename()` method in `datatables.stub`
 - Refactored `DataTables` factory, [yajra/laravel-datatables#1488](https://github.com/yajra/laravel-datatables/pull/1488)
+- Added `postAjax()` for Html Builder.
