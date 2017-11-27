@@ -45,6 +45,8 @@ class DataTablesServiceProvider extends ServiceProvider
         $this->app->singleton('datatables', function () {
             return new DataTables;
         });
+
+        $this->app->bind('datatables.html', Html\Builder::class);
     }
 
     /**
