@@ -78,7 +78,7 @@ class DataTablesServiceProvider extends ServiceProvider
      * @param  array  $config
      * @return void
      */
-    protected function mergeConfig($key, $config)
+    protected function mergeConfig($key, array $config)
     {
         $current = $this->app['config']->get($key, []);
 
