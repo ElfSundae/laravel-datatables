@@ -11,7 +11,7 @@ use Yajra\DataTables\DataTablesServiceProvider as YajraDataTablesServiceProvider
 
 class DataTablesServiceProviderTest extends TestCase
 {
-    public function testRegisterredBindings()
+    public function testRegisteredBindings()
     {
         $this->app->register(DataTablesServiceProvider::class);
 
