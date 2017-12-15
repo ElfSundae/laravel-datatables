@@ -42,10 +42,10 @@ class AppServiceProvider extends ServiceProvider
 
 ## Customized Notes
 
-- Disabled [package discovery](https://laravel.com/docs/5.5/packages#package-discovery) for the original datatables packages.
-- Added some convenient methods for DataTable service, you need to use [`ElfSundae\Laravel\DataTables\Services\DataTable`](src/Services/DataTable.php) instead of `Yajra\DataTables\Services\DataTable`.
+- Disabled [package discovery](https://laravel.com/docs/5.5/packages#package-discovery) for the original datatables packages
+- Added some convenient methods for DataTable service, you need to use [`ElfSundae\Laravel\DataTables\Services\DataTable`](src/Services/DataTable.php) instead of `Yajra\DataTables\Services\DataTable`
 - ~~Added `addColumns()` for `EloquentDataTable`~~ (_merged in [yajra/laravel-datatables#1416](https://github.com/yajra/laravel-datatables/pull/1416)_)
 - Removed `action` column in `datatables.stub` for the `make` command
 - Removed `filename()` method in `datatables.stub`
-- Refactored `DataTables` factory, [yajra/laravel-datatables#1488](https://github.com/yajra/laravel-datatables/pull/1488)
-- Added `postAjax()` for Html Builder.
+- Refactored `DataTables` factory, see [yajra/laravel-datatables#1488](https://github.com/yajra/laravel-datatables/pull/1488)
+- ~~Added `postAjax()` for Html Builder~~ (_merged in [yajra/laravel-datatables-html#45](https://github.com/yajra/laravel-datatables-html/pull/45)_)

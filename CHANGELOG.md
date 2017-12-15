@@ -1,5 +1,9 @@
 # Release Notes
 
+## 2.4.0 (2017-12-16)
+
+- Updated `yajra/laravel-datatables-html` to `~3.3`
+
 ## 2.3.0 (2017-11-27)
 
 - Removed custom `EloquentDataTable`
