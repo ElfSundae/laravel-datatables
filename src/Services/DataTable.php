@@ -78,14 +78,4 @@ JS;
     {
         return "'".str_replace(['{', '}'], ["'+", "+'"], $string)."'";
     }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return class_basename($this).'_'.date('Ymd_His');
-    }
 }
