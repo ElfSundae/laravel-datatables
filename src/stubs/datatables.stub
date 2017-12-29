@@ -55,4 +55,14 @@ class DummyClass extends DataTable
             'DummyColumns'
         ];
     }
+
+    /**
+     * Get filename for export.
+     *
+     * @return string
+     */
+    protected function filename()
+    {
+        return 'DummyFilename_'.date('YmdHis');
+    }
 }
