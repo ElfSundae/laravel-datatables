@@ -52,7 +52,7 @@ class DummyClass extends DataTable
     protected function getColumns()
     {
         return [
-            'DummyColumns'
+            'DummyColumns',
         ];
     }
 
