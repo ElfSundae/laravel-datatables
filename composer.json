@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ElfSundae\\Laravel\\DataTables\\": "src/"
+            "ElfSundae\\DataTables\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ElfSundae\\Laravel\\DataTables\\Test\\": "tests/"
+            "ElfSundae\\DataTables\\Test\\": "tests/"
         }
     },
     "scripts": {
