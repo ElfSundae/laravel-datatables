@@ -13,23 +13,12 @@ class DataTablesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerOriginalDataTables();
+        $this->app->register(\Yajra\DataTables\DataTablesServiceProvider::class);
+        $this->app->register(\Yajra\DataTables\ButtonsServiceProvider::class);
 
-        $this->replaceDataTablesBindings();
+        $this->replaceBindings();
 
         $this->configureDataTables();
-    }
-
-    /**
-     * Register the original DataTables service providers.
-     *
-     * @return void
-     */
-    protected function registerOriginalDataTables()
-    {
-        $this->app->register(\Yajra\DataTables\DataTablesServiceProvider::class);
-
-        $this->app->register(\Yajra\DataTables\ButtonsServiceProvider::class);
     }
 
     /**
@@ -37,7 +26,7 @@ class DataTablesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function replaceDataTablesBindings()
+    protected function replaceBindings()
     {
         $this->app->alias('datatables', DataTables::class);
         $this->app->singleton('datatables', function () {
@@ -50,12 +39,13 @@ class DataTablesServiceProvider extends ServiceProvider
     /**
      * Configure DataTables.
      *
+     * - Restore the default "builders" configuration, see https://github.com/yajra/laravel-datatables/pull/1462/commits/afdbe6bce9ade9b19d66034ace3d8a2c24da8a56
+     * - Configure our custom DataTable service stub for "datatables:make" command
+     *
      * @return void
      */
     protected function configureDataTables()
     {
-        // Restore the default "builders" configuration.
-        // See https://github.com/yajra/laravel-datatables/pull/1462/commits/afdbe6bce9ade9b19d66034ace3d8a2c24da8a56
         $this->mergeConfig('datatables.builders', [
             \Illuminate\Database\Eloquent\Builder::class => 'eloquent',
             \Illuminate\Database\Eloquent\Relations\Relation::class => 'eloquent',
@@ -63,7 +53,6 @@ class DataTablesServiceProvider extends ServiceProvider
             \Illuminate\Support\Collection::class => 'collection',
         ]);
 
-        // Configure our custom DataTable service stub for "make" command
         $this->mergeConfig('datatables-buttons', [
             'stub' => '/vendor/elfsundae/laravel-datatables/src/stubs',
         ]);
