@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use DummyModel;
-use ElfSundae\Laravel\DataTables\Services\DataTable;
+use ElfSundae\DataTables\Services\DataTable;
 
 class DummyClass extends DataTable
 {

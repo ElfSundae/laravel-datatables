@@ -1,11 +1,11 @@
 <?php
 
-namespace ElfSundae\Laravel\DataTables\Test;
+namespace ElfSundae\DataTables\Test;
 
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Collection;
 use Yajra\DataTables\CollectionDataTable;
-use ElfSundae\Laravel\DataTables\DataTablesServiceProvider;
+use ElfSundae\DataTables\DataTablesServiceProvider;
 
 class DataTablesTest extends TestCase
 {

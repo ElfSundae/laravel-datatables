@@ -1,6 +1,6 @@
 <?php
 
-namespace ElfSundae\Laravel\DataTables;
+namespace ElfSundae\DataTables;
 
 use Exception;
 use Illuminate\Support\Arr;

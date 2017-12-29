@@ -1,11 +1,11 @@
 <?php
 
-namespace ElfSundae\Laravel\DataTables\Test;
+namespace ElfSundae\DataTables\Test;
 
 use Orchestra\Testbench\TestCase;
-use ElfSundae\Laravel\DataTables\DataTables;
+use ElfSundae\DataTables\DataTables;
 use Yajra\DataTables\ButtonsServiceProvider;
-use ElfSundae\Laravel\DataTables\DataTablesServiceProvider;
+use ElfSundae\DataTables\DataTablesServiceProvider;
 use Yajra\DataTables\Facades\DataTables as DataTablesFacade;
 use Yajra\DataTables\DataTablesServiceProvider as YajraDataTablesServiceProvider;
 

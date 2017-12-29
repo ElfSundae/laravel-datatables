@@ -1,6 +1,6 @@
 <?php
 
-namespace ElfSundae\Laravel\DataTables\Services;
+namespace ElfSundae\DataTables\Services;
 
 use Illuminate\Support\Str;
 use Yajra\DataTables\Services\DataTable as BaseDataTable;

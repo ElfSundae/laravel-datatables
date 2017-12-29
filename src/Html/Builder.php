@@ -1,6 +1,6 @@
 <?php
 
-namespace ElfSundae\Laravel\DataTables\Html;
+namespace ElfSundae\DataTables\Html;
 
 use Yajra\DataTables\Html\Builder as BaseBuilder;
 
