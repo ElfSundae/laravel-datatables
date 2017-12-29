@@ -26,7 +26,9 @@ class DummyClass extends DataTable
      */
     public function query(ModelName $model)
     {
-        return $model->newQuery()->select(['*']);
+        return $model->newQuery()->select([
+            'id', 'add-your-columns-here', 'created_at', 'updated_at',
+        ]);
     }
 
     /**
