@@ -2,7 +2,6 @@
 
 namespace ElfSundae\DataTables;
 
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class DataTablesServiceProvider extends ServiceProvider
@@ -29,7 +28,6 @@ class DataTablesServiceProvider extends ServiceProvider
     protected function registerOriginalDataTables()
     {
         $this->app->register(\Yajra\DataTables\DataTablesServiceProvider::class);
-        AliasLoader::getInstance()->alias('DataTables', \Yajra\DataTables\Facades\DataTables::class);
 
         $this->app->register(\Yajra\DataTables\ButtonsServiceProvider::class);
     }
