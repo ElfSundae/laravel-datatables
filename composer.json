@@ -1,7 +1,7 @@
 {
     "name": "elfsundae/laravel-datatables",
     "type": "library",
-    "description": "Custom Laravel DataTables",
+    "description": "An extended package based on yajra/laravel-datatables.",
     "keywords": ["laravel", "datatables"],
     "homepage": "https://github.com/ElfSundae/laravel-datatables",
     "license": "MIT",
