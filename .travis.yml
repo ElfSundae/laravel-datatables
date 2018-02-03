@@ -1,22 +1,27 @@
+dist: trusty
 language: php
 
 php:
   - 7.0
   - 7.1
   - 7.2
+  - hhvm
 
-env:
-  matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 before_script:
-  - if [[ ${TRAVIS_PHP_VERSION:0:3} > "7.1" ]]; then COMPOSER_FLAGS=""; fi
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist --no-suggest
 
 script:
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+  - |
+    if [[ "$TRAVIS_PHP_VERSION" != 'hhvm' && "$TRAVIS_PHP_VERSION" != '7.0' ]]; then
+      wget https://scrutinizer-ci.com/ocular.phar
+      php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+    fi
