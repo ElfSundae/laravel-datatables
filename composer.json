@@ -38,9 +38,6 @@
         "test": "vendor/bin/phpunit"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "2.7-dev"
-        },
         "laravel": {
             "dont-discover": [
                 "yajra/laravel-datatables-oracle",
